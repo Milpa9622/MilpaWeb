@@ -1,7 +1,12 @@
 /* ============================================
    Milpa Agricultural Placemaking Project
-   Clean Community-Focused CSS Style
+   Clean Community-Focused CSS Style with Mobile Responsiveness
    ============================================ */
+
+/* Add box-sizing for better layout control */
+* {
+  box-sizing: border-box;
+}
 
 /* Google Fonts: Lato for body, Merriweather for headings */
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:wght@700&display=swap');
@@ -13,9 +18,10 @@ body,
   font-size: 16px;
   color: #333;
   background-color: #d7efaa;
-  max-width: 970px;
+  max-width: 100%;
   margin: 0 auto;
   padding: 0;
+  overflow-x: hidden;
 }
 
 #title {
@@ -28,7 +34,6 @@ body,
   max-width: 970px;
 }
 
-
 /* ========== Header & Navigation ========== */
 .header {
   display: flex;
@@ -39,15 +44,11 @@ body,
 }
 
 .banner {
-  width: 100vw;
+  width: 100%;
   background-color: #136611; /* Community green */
   padding: 12px 0;
   position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  margin-top: 0;
+  margin: 0;
   border-top: none;
   box-shadow: none;
 }
@@ -82,7 +83,6 @@ body,
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
-
 }
 
 .slider {
@@ -161,89 +161,78 @@ button.next { right: 10px; }
 
 /* ========== Footer ========== */
 .footer {
-            width: 100vw;
-            position: relative;
-            left: 50%;
-            right: 50%;
-            margin-left: -50vw;
-            margin-right: -50vw;
-            text-align: center;
-            background-color: #136611;
-            color: #F0F0F0;
-            padding: 30px 0 20px;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .sponsors-heading {
-            font-size: 18px;
-            margin-bottom: 25px;
-        }
-
-        .sponsors {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 60px;
-            margin: 20px auto;
-            padding: 15px;
-            background-color: white;
-            border-radius: 8px;
-            max-width: 800px;
-        }
-
-        .sponsor-logo {
-    max-height: 70px;     /* Better balance */
-    width: auto;
-    object-fit: contain;
-    vertical-align: middle;
+  width: 100%;
+  position: relative;
+  margin: 0;
+  text-align: center;
+  background-color: #136611;
+  color: #F0F0F0;
+  padding: 30px 0 20px;
 }
 
-        .contact-section {
-            margin: 30px auto 20px;
-            max-width: 500px;
-            padding: 15px;
-            border-top: 1px solid rgba(255, 255, 255, 0.3);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-        }
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
 
-        .contact-heading {
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
+.sponsors-heading {
+  font-size: 18px;
+  margin-bottom: 25px;
+}
 
-        .contact-info {
-            line-height: 1.8;
-        }
+.sponsors {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  margin: 20px auto;
+  padding: 15px;
+  background-color: white;
+  border-radius: 8px;
+  max-width: 800px;
+}
 
-        .contact-email {
-            color: #F0F0F0;
-            text-decoration: underline;
-            font-weight: 500;
-        }
+.sponsor-logo {
+  max-height: 70px;     /* Better balance */
+  width: auto;
+  object-fit: contain;
+  vertical-align: middle;
+}
 
-        .contact-email:hover {
-            color: #fff;
-        }
+.contact-section {
+  margin: 30px auto 20px;
+  max-width: 500px;
+  padding: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
 
-        .copyright {
-            margin-top: 20px;
-            font-size: 14px;
-            opacity: 0.9;
-        }
+.contact-heading {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
 
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .sponsors {
-                flex-direction: column;
-                gap: 30px;
-            }
-        }
+.contact-info {
+  line-height: 1.8;
+}
+
+.contact-email {
+  color: #F0F0F0;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.contact-email:hover {
+  color: #fff;
+}
+
+.copyright {
+  margin-top: 20px;
+  font-size: 14px;
+  opacity: 0.9;
+}
 
 .logo-banner {
   width: 100%;
@@ -291,7 +280,9 @@ button.next { right: 10px; }
   font-size: 16px;
   line-height: 1.6;
   text-align: justify;
+  padding: 0 20px;
 }
+
 .Bodytext-flex {
   display: flex;
   gap: 40px;
@@ -312,6 +303,7 @@ button.next { right: 10px; }
   font-size: 24px;
   margin-bottom: 15px;
 }
+
 .aboutHeaders{
   font-family: 'Merriweather', serif;
   text-align: center;
@@ -321,6 +313,7 @@ button.next { right: 10px; }
   font-family: 'Merriweather', serif;
   text-align: center;
 }
+
 .photo-columns {
   display: flex;
   justify-content: space-around;
@@ -333,7 +326,10 @@ button.next { right: 10px; }
 
 .photo-card {
   flex: 1 1 45%;
+  min-width: 250px;
+  max-width: 300px;
   text-align: center;
+  margin-bottom: 20px;
 }
 
 .photo-card img {
@@ -342,6 +338,7 @@ button.next { right: 10px; }
   height: auto;
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  object-fit: cover;
 }
 
 .caption {
@@ -350,6 +347,7 @@ button.next { right: 10px; }
   font-style: italic;
   color: #333;
 }
+
 .photo-grid {
   display: flex;
   flex-wrap: wrap;
@@ -360,24 +358,108 @@ button.next { right: 10px; }
   padding: 0 20px;
 }
 
-.photo-card {
-  flex: 1 1 45%;
-  max-width: 300px;
-  text-align: center;
+/* Make all images responsive */
+img {
+  max-width: 100%;
+  height: auto;
 }
 
-.photo-card img {
-  width: 100%;
-  height: 250px;              /* or whatever height you want */
-  object-fit: cover;          /* crops images to fill area */
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+  .banner nav {
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px 0;
+  }
+  
+  .logo-hover-wrap {
+    width: 70%;
+  }
+  
+  .Bodytext {
+    column-count: 1;
+  }
+  
+  .Bodytext-flex {
+    flex-direction: column;
+  }
+  
+  .photo-columns {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .photo-grid {
+    gap: 15px;
+  }
+  
+  .photo-card {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+  
+  .photo-card img {
+    height: auto;
+    max-height: 350px;
+  }
+  
+  .slider-container {
+    max-width: 100%;
+  }
+  
+  #title {
+    font-size: 36px;
+    padding: 20px 15px;
+  }
+  
+  .sponsors {
+    flex-direction: column;
+    gap: 20px;
+    padding: 15px;
+  }
+
+  .slide {
+    height: 300px;
+  }
+
+  button.prev,
+  button.next {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
 }
 
+@media (max-width: 480px) {
+  .banner a {
+    font-size: 16px;
+  }
+  
+  .FeaturedStories {
+    font-size: 24px;
+  }
+  
+  .aboutHeaders {
+    font-size: 24px;
+  }
+  
+  .sponsor-logo {
+    max-height: 50px;
+  }
+  
+  .photo-card img {
+    height: auto;
+    max-height: 250px;
+  }
 
-.caption {
-  margin-top: 10px;
-  font-style: italic;
-  font-size: 16px;
-  color: #333;
+  .slide {
+    height: 200px;
+  }
+
+  button.prev,
+  button.next {
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+  }
 }
