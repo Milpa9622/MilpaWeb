@@ -23,6 +23,10 @@ body,
   padding: 0;
   overflow-x: hidden;
 }
+p {
+  padding-left: 20px;
+  padding-right: 20px;
+}
 
 #title {
   font-family: 'Merriweather', serif;
