@@ -1,0 +1,990 @@
+/* ============================================
+   Milpa Agricultural Placemaking Project
+   Clean Community-Focused CSS Style with Mobile Responsiveness
+   ============================================ */
+
+/* ========== GLOBAL IMPORTS & RESETS ========== */
+/* Add box-sizing for better layout control */
+* {
+  box-sizing: border-box;
+}
+
+/* Google Fonts: Lato for body, Merriweather for headings */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:wght@700&display=swap');
+
+/* ========== BASE STYLES ========== */
+body,
+.body {
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  color: #333;
+  background-color: #d7efaa;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+p {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* Make all images responsive */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ========== TYPOGRAPHY ========== */
+#title {
+  font-family: 'Merriweather', serif;
+  font-size: 48px;
+  color: #4E8A59;
+  text-align: left;
+  padding: 30px 20px 10px 20px;
+  margin: 0 auto;
+  max-width: 970px;
+}
+
+.FeaturedStories {
+  text-align: center;
+  font-family: 'Merriweather', serif;
+  font-size: 32px;
+  margin-top: 30px;
+  color: #333;
+}
+
+.aboutHeaders {
+  font-family: 'Merriweather', serif;
+  text-align: center;
+  text-decoration: underline;
+  color: #0f4f0f;
+
+} 
+.eventD {
+  font-family: 'Merriweather', serif;
+  text-align: center; 
+  
+}
+.Contributors {
+  font-family: 'Merriweather', serif;
+  text-align: center;
+}
+
+/* ========== HEADER & NAVIGATION ========== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  margin-bottom: 0;
+}
+
+.banner {
+  width: 100%;
+  background-color: #136611; /* Community green */
+  padding: 12px 0;
+  position: relative;
+  margin: 0;
+  border-top: none;
+  box-shadow: none;
+}
+
+.banner nav {
+  max-width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.banner a {
+  color: white;
+  font-size: 20px; 
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.banner a:hover {
+  text-decoration: underline;
+  color: #F4C542; /* warm yellow on hover */
+}
+
+/* ========== LOGO SECTION ========== */
+.logo-banner {
+  width: 100%;
+  background-color: #d7efaa;
+  text-align: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #d7efaa;
+}
+
+.logo-hover-wrap {
+  position: relative;
+  display: inline-block;
+  width: 45%;  /* Increased from 30% to 50% */
+  max-width: 600px;  /* Increased from 400px to 600px */
+}
+
+.logo-default,
+.logo-hover {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.logo-hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.logo-hover-wrap:hover .logo-default {
+  opacity: 0;
+}
+
+.logo-hover-wrap:hover .logo-hover {
+  opacity: 1;
+}
+
+/* ========== SLIDER / CAROUSEL ========== */
+.slider-container {
+  border: 3px solid black;
+  background-color: black;
+  position: relative;
+  max-width: 600px;
+  margin: 40px auto;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+}
+
+.slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 500%; /* Total = number of slides * 100% */
+}
+
+.slide {
+  width: 20%; /* 100% / 5 slides */
+  height: 400px;
+  object-fit: cover;
+  flex-shrink: 0;
+  background-color: #f8f8f8;
+  position: relative;
+}
+
+/* ========== SLIDER NAVIGATION ========== */
+/* Navigation Buttons */
+button.prev,
+button.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button.prev:hover,
+button.next:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+button.prev { left: 10px; }
+button.next { right: 10px; }
+
+/* Dots Navigation */
+.dots-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background-color: #bbb;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dot.active {
+  background-color: #4E8A59;
+}
+
+/* ========== CONTENT LAYOUT ========== */
+.Bodytext {
+  column-count: 2;         /* Split into 2 columns */
+  column-gap: 40px;        /* Space between columns */
+  max-width: 1000px;
+  margin: 0 auto;
+  font-size: 16px;
+  line-height: 1.6;
+  text-align: justify;
+  padding: 0 20px;
+}
+
+.Bodytext-flex {
+  display: flex;
+  gap: 40px;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.text-column {
+  flex: 1;
+  text-align: justify;
+  line-height: 1.6;
+}
+
+.text-column h2 {
+  font-family: 'Merriweather', serif;
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+/* ========== PHOTO GALLERY ========== */
+.photo-columns {
+  display: flex;
+  justify-content: space-around;
+  gap: 40px;
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+  flex-wrap: wrap;
+}
+
+.photo-card {
+  flex: 1 1 45%;
+  min-width: 250px;
+  max-width: 300px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.photo-card img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  object-fit: cover;
+}
+
+.caption {
+  margin-top: 10px;
+  font-size: 16px;
+  font-style: italic;
+  color: #333;
+}
+
+.photo-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+/* ========== FOOTER ========== */
+.footer {
+  width: 100%;
+  position: relative;
+  margin: 0;
+  text-align: center;
+  background-color: #136611;
+  color: #F0F0F0;
+  padding: 30px 0 20px;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ========== SPONSORS SECTION ========== */
+.sponsors-heading {
+  font-size: 18px;
+  margin-bottom: 25px;
+}
+
+.sponsors {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  margin: 20px auto;
+  padding: 15px;
+  background-color: white;
+  border-radius: 8px;
+  max-width: 800px;
+}
+
+.sponsor-logo {
+  max-height: 70px;     /* Better balance */
+  width: auto;
+  object-fit: contain;
+  vertical-align: middle;
+}
+
+/* ========== CONTACT SECTION ========== */
+.contact-section {
+  margin: 30px auto 20px;
+  max-width: 500px;
+  padding: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.contact-heading {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.contact-info {
+  line-height: 1.8;
+}
+
+.contact-email {
+  color: #F0F0F0;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.contact-email:hover {
+  color: #fff;
+}
+
+.copyright {
+  margin-top: 20px;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+/* ========== RESPONSIVE DESIGN - TABLET ========== */
+@media (max-width: 768px) {
+  .banner nav {
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px 0;
+  }
+  
+  .logo-hover-wrap {
+    width: 70%;
+  }
+  
+  .Bodytext {
+    column-count: 1;
+  }
+  
+  .Bodytext-flex {
+    flex-direction: column;
+  }
+  
+  .photo-columns {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .photo-grid {
+    gap: 15px;
+  }
+  
+  .photo-card {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+  
+  .photo-card img {
+    height: auto;
+    max-height: 350px;
+  }
+  
+  .slider-container {
+    max-width: 100%;
+  }
+  
+  #title {
+    font-size: 36px;
+    padding: 20px 15px;
+  }
+  
+  .sponsors {
+    flex-direction: column;
+    gap: 20px;
+    padding: 15px;
+  }
+
+  .slide {
+    height: 300px;
+  }
+
+  button.prev,
+  button.next {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+}
+
+/* ========== RESPONSIVE DESIGN - MOBILE ========== */
+@media (max-width: 480px) {
+  .banner a {
+    font-size: 16px;
+  }
+  
+  .FeaturedStories {
+    font-size: 24px;
+  }
+  
+  .aboutHeaders {
+    font-size: 24px;
+  }
+  
+  .sponsor-logo {
+    max-height: 50px;
+  }
+  
+  .photo-card img {
+    height: auto;
+    max-height: 250px;
+  }
+
+  .slide {
+    height: 200px;
+  }
+
+  button.prev,
+  button.next {
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+  }
+  
+  @media (max-width: 600px) {
+  .event-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .event-image {
+    width: 100%;
+  }
+
+  .event-info {
+    width: 100%;
+  }
+}
+
+}
+/* ========== EVENTS ========== */
+.event-card {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 12px;
+  max-width: 700px;
+  width: 90%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.event-image {
+  width: 35%;
+  max-width: 200px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.event-info {
+  flex: 1;
+}
+
+.event-title {
+  font-size: 22px;
+  margin: 0 0 8px;
+  color: #136611;
+}
+.event-card:hover {
+  transform: translateY(-5px);
+  transition: all 0.3s ease;
+}
+
+
+.event-date,
+.event-location,
+.event-time,
+.event-description {
+  margin: 4px 0;
+  color: #333;
+  font-size: 15px;
+  line-height: 1.4;
+}
+/* Remove underline by default */
+.event-title a {
+  color: #136611;
+  text-decoration: none;
+  transition: text-decoration 0.3s ease;
+}
+
+/* Add underline when the entire card is hovered */
+.event-card:hover .event-title a {
+  text-decoration: underline;
+  color: #0f4f0f; /* Optional darker hover color */
+}
+
+.no-upcoming {
+  text-align: center;
+  font-style: italic;
+  color: #444;
+  margin-top: 40px;
+}
+/* Event pages */
+.back-link {
+  display: inline-block;
+  margin: 20px;
+  color: #136611;
+  font-weight: bold;
+  text-decoration: none;
+}
+.back-link:hover {
+  text-decoration: underline;
+}
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.plant-card {
+  width: 250px;
+  background-color: #fdfdf6;
+  border: 2px solid #d0d0aa;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.plant-card:hover {
+  transform: scale(1.03);
+}
+
+.plant-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+}
+
+.plant-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: #3a5a40;
+}
+
+.plant-card p {
+  font-size: 0.95rem;
+  color: #444;
+}
+.plant-headings{
+font-family: 'Merriweather', serif;
+  font-size: 34px;
+  margin-bottom: 15px;
+  margin-left: 8%;
+  text-align: left; 
+  color: #0f4f0f;
+}
+
+/* Video */
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 ratio */
+  padding-top: 25px;
+  height: 0;
+  overflow: hidden;
+  max-width: 800px;
+  margin: 40px auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+#our-gardens {
+  padding: 2rem;
+  background-color: #d7efaa;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+#our-gardens h2 {
+  font-size: 2.5rem;
+  margin-bottom: 0.25rem;
+}
+
+#our-gardens .intro {
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  color: #444;
+  font-size: 1rem;
+}
+
+.garden-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  padding: 0 1rem;
+}
+
+.garden-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  overflow: hidden;
+  text-align: left;
+}
+
+.garden-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+.garden-card h3 {
+  margin: 1rem 1rem 0.5rem;
+  font-size: 1.25rem;
+  color: #333;
+}
+
+.garden-card p {
+  margin: 0 1rem 1rem;
+  font-size: 0.95rem;
+  color: #555;
+}
+.about-slide {
+  background-image: url('../img/IMG_2768.JPEG');
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 550;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.about-overlay {
+  background-color: rgba(255, 255, 255, 0.85);
+  border-left: 6px solid #0f4f0f;
+  border-radius: 10px;
+  padding: 2rem;
+  max-width: 600px;
+  font-family: 'Lato', sans-serif;
+  color: #333;
+  text-align: left;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+
+.featured-slider-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  background-color: #d7efaa;
+}
+
+.featured-slider {
+  display: flex;
+  width: 100%;
+  transition: transform 0.6s ease;
+}
+
+.featured-slide {
+  width: 100vw; /* force full browser width */
+  height: 85vh;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+
+.featured-title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+.featured-button {
+  display: inline-block;
+  background-color: #0f4f0f;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.featured-button:hover {
+  background-color: #0c3c0c;
+}
+
+.article-section {
+  margin-top: 7rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4rem; /* increased gap for even better spacing */
+  justify-content: center;
+  padding: 2rem 2rem 6rem; /* reduced top padding to bring cards down */
+  background: transparent; /* remove white background */
+  background-size: cover;
+  background-position: center;
+  box-sizing: border-box;
+  max-width: 1400px; /* wider container for better card distribution */
+}
+
+.article-heading {
+  width: 100%;
+  margin: 0 0 2rem 0; /* add bottom margin */
+  padding: 1rem 0;
+  font-size: 2.2rem;
+  text-align: center;
+  color: #0f4f0f;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.article-card {
+  background: rgba(255, 255, 255, 0.92); /* slightly more transparent */
+  backdrop-filter: blur(10px); /* add glass effect */
+  -webkit-backdrop-filter: blur(10px); /* webkit support */
+  border-radius: 16px; /* more rounded corners */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  border: none; /* removed border */
+  padding: 1.5rem; /* increased padding inside cards */
+  max-width: 500px; /* wider cards */
+  min-width: 350px; /* ensure minimum width */
+  flex: 1 1 400px; /* better flex basis */
+  font-size: 0.95rem;
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 2rem; /* increased margin for stacked layout on mobile */
+  position: relative;
+  overflow: hidden; /* prevent any overflow issues */
+  display: flex;
+  flex-direction: column; /* stack content vertically */
+  min-height: unset; /* ensure minimum height for consistent layout */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: auto;
+}
+
+.article-card:hover {
+  transform: translateY(-8px); /* slightly more pronounced hover effect */
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.95); /* slightly more opaque on hover */
+}
+
+.article-card img {
+  width: 100%;
+  height: 180px; /* reduced height to leave more room for text */
+  border-radius: 12px;
+  margin-bottom: 1.5rem; /* increased margin */
+  object-fit: cover;
+  transition: opacity 0.3s ease;
+  position: relative;
+  z-index: 1; /* ensure image is below any text */
+  flex-shrink: 0; /* prevent image from shrinking */
+  aspect-ratio: 16 / 9; /* Keeps image looking balanced */
+}
+
+.article-card:hover img {
+  opacity: 0.9; /* subtle image effect on hover */
+}
+
+.article-card blockquote {
+  font-style: italic;
+  margin: 0 0 1rem 0; /* increased bottom margin */
+  color: #444;
+  font-size: 1rem;
+  line-height: 1.6; /* increased line height for better readability */
+  padding-left: 0; /* removed left padding */
+  border-left: none; /* removed quote border */
+  flex-grow: 1; /* allow quote to expand */
+  word-wrap: break-word; /* prevent text overflow */
+  overflow-wrap: break-word; /* additional overflow protection */
+}
+
+.article-card cite {
+  display: block;
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 1rem; /* space before link */
+  font-style: normal;
+  word-wrap: break-word; /* prevent text overflow */
+  overflow-wrap: break-word; /* additional overflow protection */
+  flex-shrink: 0; /* prevent citation from shrinking */
+}
+
+.article-card a {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: #0f4f0f;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 0.5rem 0;
+  border-bottom: 2px solid transparent;
+  transition: border-bottom-color 0.2s ease;
+  flex-shrink: 0; /* prevent link from shrinking */
+  word-wrap: break-word; /* prevent text overflow */
+  overflow-wrap: break-word; /* additional overflow protection */
+}
+
+.article-card a:hover {
+  border-bottom-color: #0f4f0f;
+  text-decoration: none;
+}
+
+/* Add title styling for better text hierarchy */
+.article-card h3 {
+  margin: 0 0 1rem 0;
+  color: #0f4f0f;
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.3;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  flex-shrink: 0;
+}
+
+/* Content wrapper for better text flow */
+.article-card-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  min-height: 0; /* allow content to shrink if needed */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .article-section {
+    gap: 3rem;
+    padding: 3rem 1.5rem 4rem;
+  }
+  
+  .article-heading {
+    font-size: 1.8rem;
+  }
+  
+  .article-card {
+    max-width: 100%;
+    flex: 1 1 100%;
+    min-width: auto;
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .article-section {
+    gap: 2rem;
+    padding: 2rem 1rem 3rem;
+  }
+  
+  .article-heading {
+    font-size: 1.6rem;
+  }
+  
+  .article-card {
+    padding: 1.5rem;
+    min-width: auto;
+    margin-bottom: 1rem;
+  }
+  
+  .article-card img {
+    height: 180px;
+  }
+}
+.social-links {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.social-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #0f4f0f;
+  color: white;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  width: fit-content;
+  transition: background-color 0.3s ease;
+}
+
+.social-button:hover {
+  background-color: #0c3c0c;
+}
+
+.social-icon {
+  height: 24px;
+  width: 24px;
+}
+
+
+
+
+
+
