@@ -991,16 +991,22 @@ font-family: 'Merriweather', serif;
 /* Carousel shell – tighter width for a vertical Reel */
 .ig-carousel {
   position: relative;
-  max-width: 320px;   /* 🔒 smaller width */
+  max-width: 320px;
   width: 100%;
   margin: 24px auto 0;
-  transform: translateX(-120px)
+  transform: translateX(-120px); /* desktop nudge */
 }
 
-/* On small screens, let it breathe but keep it narrow-ish */
+/* On small screens, reset shift + let it center */
 @media (max-width: 640px){
-  .ig-carousel{ max-width: 92vw; }
+  .ig-carousel{
+    max-width: 92vw;       /* take most of screen width */
+    transform: none;       /* remove the left shift */
+    margin-left: auto;     /* center horizontally */
+    margin-right: auto;
+  }
 }
+
 
 /* Buttons */
 .ig-nav{
@@ -1116,10 +1122,14 @@ font-family: 'Merriweather', serif;
 .oh-card__link:hover{ text-decoration:underline; }
 
 /* Steps */
-.oh-steps{
-  max-width: 780px; margin: 0 auto; padding:0 0 4px;
-  line-height:1.6; color:#2b3b2b;
+.oh-steps {
+  max-width: 780px;
+  margin: 0 auto;
+  padding-left: 1.5rem;  /* ✅ push numbers in from left */
+  line-height: 1.6;
+  color: #2b3b2b;
 }
+
 .oh-steps li{ margin: 6px 0; }
 
 /* Chips */
