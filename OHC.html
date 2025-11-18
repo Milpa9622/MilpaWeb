@@ -90,6 +90,120 @@
     <a class="oh-btn" href="https://oralhistory.unt.edu/our-collection" target="_blank" rel="noopener">Go to Collection</a>
   </section>
 
+  <!-- ORAL HISTORY SEARCH + FILTER SYSTEM -->
+<section class="oh-section">
+  <h2 class="oh-h2">Explore Interviews</h2>
+
+  <!-- Search Bar -->
+  <input 
+    type="text" 
+    id="oh-search" 
+    placeholder="Search by title, interviewee, or theme..."
+    style="width:100%;max-width:700px;margin:0 auto 20px auto;display:block;padding:10px;font-size:1rem;border-radius:8px;border:1px solid #c7dfb0;"
+  >
+
+  <!-- Tag Filters -->
+  <div id="oh-tags" class="oh-chips" style="margin-bottom:20px;"></div>
+
+  <!-- Results Grid -->
+  <div id="oh-results" class="oh-grid"></div>
+</section>
+
+<!-- DYNAMIC LOADING SCRIPT -->
+<script>
+  let ohData = [];
+  let ohActiveTags = new Set();
+
+  // Load JSON
+  fetch("data.json")
+    .then(res => res.json())
+    .then(json => {
+      ohData = json;
+      renderTags();
+      renderResults();
+    });
+
+  function renderTags() {
+    const tagContainer = document.getElementById("oh-tags");
+    const allTags = new Set();
+
+    ohData.forEach(item => {
+      item.tags.forEach(tag => allTags.add(tag));
+    });
+
+    tagContainer.innerHTML = "";
+    [...allTags].sort().forEach(tag => {
+      const span = document.createElement("span");
+      span.className = "chip";
+      span.textContent = tag;
+      span.onclick = () => toggleTag(tag, span);
+      tagContainer.appendChild(span);
+    });
+  }
+
+  function toggleTag(tag, el) {
+    if (ohActiveTags.has(tag)) {
+      ohActiveTags.delete(tag);
+      el.classList.remove("chip-active");
+    } else {
+      ohActiveTags.add(tag);
+      el.classList.add("chip-active");
+    }
+    renderResults();
+  }
+
+  function renderResults() {
+    const searchText = document.getElementById("oh-search").value.toLowerCase();
+    const container = document.getElementById("oh-results");
+
+    container.innerHTML = "";
+
+    ohData
+      .filter(item => {
+        const matchesSearch =
+          item.title.toLowerCase().includes(searchText) ||
+          item.interviewee.toLowerCase().includes(searchText) ||
+          item.summary.toLowerCase().includes(searchText);
+
+        const matchesTags =
+          ohActiveTags.size === 0 ||
+          [...ohActiveTags].every(tag => item.tags.includes(tag));
+
+        return matchesSearch && matchesTags;
+      })
+      .forEach(item => {
+        container.innerHTML += `
+  <div class="oh-card">
+    <div class="oh-card__media">
+      <div style="height:150px;background:#eef6e6;border-bottom:1px solid #c7dfb0;"></div>
+    </div>
+    <div class="oh-card__body">
+      <h3 class="oh-card__title">${item.title}</h3>
+      <p class="oh-card__meta">${item.interviewee} • ${item.year}</p>
+      <p class="oh-card__desc">${item.summary}</p>
+      <a class="oh-card__link" href="item.html?id=${item.id}">View Details →</a>
+    </div>
+  </div>
+`;
+
+
+      });
+  }
+
+  // Live search
+  document.getElementById("oh-search").addEventListener("input", renderResults);
+</script>
+
+<style>
+  /* Optional: highlight active tags */
+  .chip-active {
+    background:#136611 !important;
+    color:white !important;
+    border-color:#136611 !important;
+  }
+</style>
+
+
   <!-- Bottom Navigation -->
   <div class="banner">
     <nav>

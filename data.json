@@ -1,0 +1,109 @@
+[
+  {
+    "id": "yayoi-takeuchi-2024",
+    "title": "Food Memories from Japan and Discovering New Cuisines in Texas",
+    "interviewee": "Yayoi Takeuchi",
+    "year": 2024,
+    "tags": [
+      "Food Memories",
+      "Food Traditions",
+      "Culture",
+      "Immigration",
+      "Family",
+      "North Texas",
+      "Identity"
+    ],
+    "summary": "Yayoi Takeuchi reflects on her childhood in Yokosuka, Japan, the centrality of rice, miso, tofu, and vegetables in her diet, and the regional food differences she experienced. After immigrating to the U.S., she explored Mexican, Thai, Vietnamese, and Indian cuisines, eventually developing new tastes while maintaining Japanese food traditions.",
+    "transcript": "./transcripts/Yayoi Takeuchi_Transcript.pdf",
+    "audio": "./transcripts/Yayoi Takeuchi_Audio.m4a"
+  },
+  {
+    "id": "leah-bennett-2023",
+    "title": "Gentrification, Grocery Work, and Foodways in Dallas",
+    "interviewee": "Leah Bennett",
+    "year": 2023,
+    "tags": [
+      "North Texas",
+      "Food Access",
+      "Work",
+      "Grocery Stores",
+      "Food Memories",
+      "Culture",
+      "Childhood"
+    ],
+    "summary": "Leah Bennett discusses growing up in Dallas, witnessing rapid gentrification, and working at Central Market under strict and stressful conditions. She describes her family's soul food traditions, her experiences with regional cuisines during travel, and her sensitivity to overstimulating grocery environments.",
+    "transcript": "./transcripts/Leah Bennett_Transcript.pdf",
+    "audio": "./audio/Leah Bennett_Audio.m4a"
+  },
+  {
+    "id": "noah-huerta-2024",
+    "title": "Mexican American Food Traditions and Navigating Diets",
+    "interviewee": "Noah Huerta",
+    "year": 2024,
+    "tags": [
+      "Food Memories",
+      "Family",
+      "Identity",
+      "Culture",
+      "Childhood",
+      "Diet",
+      "Health",
+      "North Texas"
+    ],
+    "summary": "Noah Huerta shares memories of being raised on Mexican American staples like sopita, rice, beans, and tamales, much of it prepared by his grandmother. He discusses attempts at vegan and vegetarian diets, emotional relationships with food, and moments where cultural foods helped him feel connected to family.",
+    "transcript": "./transcripts/Noah Huerta_Transcript.pdf",
+    "audio": "./audio/Noah Huerta_Audio.m4a"
+  },
+  {
+    "id": "jeff-castaneda-2024",
+    "title": "Chicano Food Memories and Community Roots",
+    "interviewee": "Jeff Castañeda Jr.",
+    "year": 2024,
+    "tags": [
+      "Food Traditions",
+      "Family",
+      "Culture",
+      "Identity",
+      "Community",
+      "Food Memories"
+    ],
+    "summary": "Jeff Castañeda Jr. reflects on growing up in a Chicano household where food expressed family identity, community ties, and shared traditions. He highlights dishes passed down through generations and how they shaped his understanding of culture and belonging.",
+    "transcript": "./transcripts/Jeff Castaneda_Transcript.pdf",
+    "audio": "./audio/Jeff Castaneda_Audio.m4a"
+  },
+  {
+    "id": "anna-howington-2024",
+    "title": "Southern Food Memories and Shifting Food Environments",
+    "interviewee": "Anna Howington",
+    "year": 2024,
+    "tags": [
+      "Food Memories",
+      "Family",
+      "Southern Food",
+      "Childhood",
+      "Culture",
+      "North Texas"
+    ],
+    "summary": "Anna Howington discusses growing up around Southern staples, family gatherings centered on food, and the ways relocation influenced her tastes and eating habits. She describes food as a grounding presence across different stages of her life.",
+    "transcript": "./transcripts/Anna Howington_Transcript.pdf",
+    "audio": "./audio/Anna Howington_Audio.m4a"
+  },
+  {
+    "id": "juliana-alvarado-2024",
+    "title": "Salvadoran Traditions and Food Across Borders",
+    "interviewee": "Juliana Alvarado",
+    "year": 2024,
+    "tags": [
+      "Culture",
+      "Food Traditions",
+      "Immigration",
+      "Family",
+      "Identity",
+      "Food Memories",
+      "North Texas"
+    ],
+    "summary": "Juliana Alvarado shares memories of growing up with Salvadoran dishes and the ways migration shaped her food experiences. She reflects on balancing traditional foods with new ingredients and cultural influences in North Texas.",
+    "transcript": "./transcripts/Juliana Alvarado_Transcript.pdf",
+    "audio": "./audio/Juliana Alvarado_Audio.m4a"
+  }
+]
