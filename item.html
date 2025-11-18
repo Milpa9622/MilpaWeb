@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Oral History Details</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <style>
+    .oh-detail {
+      max-width: 900px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid #c7dfb0;
+    }
+    .oh-tags { margin: 10px 0; }
+    .oh-tag {
+      display: inline-block;
+      background: #eef6e6;
+      color: #2e7d32;
+      padding: 4px 10px;
+      border-radius: 999px;
+      margin-right: 6px;
+      border: 1px solid #c7dfb0;
+    }
+    audio { width: 100%; margin-top: 12px; }
+  </style>
+</head>
+
+<body>
+
+<div class="oh-detail">
+  <h1 id="title"></h1>
+  <p id="meta"></p>
+  <p id="summary"></p>
+
+  <h3>Audio</h3>
+  <audio id="audio-player" controls></audio>
+
+  <h3>Transcript</h3>
+  <a id="transcript-link" href="#" target="_blank">View Transcript</a>
+
+  <h3>Tags</h3>
+  <div id="tag-list"></div>
+</div>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const interviewId = params.get("id");
+
+  fetch("data.json")
+    .then(res => res.json())
+    .then(all => {
+      const item = all.find(i => i.id === interviewId);
+
+      if (!item) {
+        document.body.innerHTML = "<p>Interview not found.</p>";
+        return;
+      }
+
+      document.getElementById("title").textContent = item.title;
+      document.getElementById("meta").textContent = item.interviewee + " • " + item.year;
+      document.getElementById("summary").textContent = item.summary;
+
+      document.getElementById("audio-player").src = item.audio;
+      document.getElementById("transcript-link").href = item.transcript;
+
+      // tags
+      const tagList = document.getElementById("tag-list");
+      item.tags.forEach(t => {
+        const span = document.createElement("span");
+        span.className = "oh-tag";
+        span.textContent = t;
+        tagList.appendChild(span);
+      });
+    });
+</script>
+
+</body>
+</html>
