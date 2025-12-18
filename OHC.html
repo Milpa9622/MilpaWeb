@@ -43,7 +43,7 @@
       <div class="oh-cta">
         <a class="oh-btn" href="https://oralhistory.unt.edu/our-collection" target="_blank" rel="noopener">Browse the Collection</a>
         <a class="oh-btn oh-btn--outline" href="https://oralhistory.unt.edu/digital-projects-and-collections" target="_blank" rel="noopener">Digital Projects & Collections</a>
-        <a class="oh-btn oh-btn--ghost" href="mailto:Michael.Wise@unt.edu?subject=Oral%20History%20Inquiry">Contribute Your Story</a>
+        <a class="oh-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSdIYj8EVAvAT7Uiy9OimYss_7vuWIcKTpLD_nO9aKv4pAOEXA/viewform">Contribute Your Story</a>
       </div>
     </div>
   </header>
@@ -69,19 +69,7 @@
     </ol>
   </section>
 
-  <!-- LANGUAGES / THEMES -->
-  <section class="oh-section">
-    <h2 class="oh-h2">Languages & Themes</h2>
-    <div class="oh-chips">
-      <span class="chip">English</span>
-      <span class="chip">Spanish</span>
-      <span class="chip">Bilingual</span>
-      <span class="chip">Seed Saving</span>
-      <span class="chip">Urban Farming</span>
-      <span class="chip">Culinary Arts</span>
-      <span class="chip">Education</span>
-    </div>
-  </section>
+
 
   <!-- CALL TO ACTION -->
   <section class="oh-ctaFoot">
@@ -175,8 +163,13 @@
         container.innerHTML += `
   <div class="oh-card">
     <div class="oh-card__media">
-      <div style="height:150px;background:#eef6e6;border-bottom:1px solid #c7dfb0;"></div>
-    </div>
+  <img 
+    src="${item.image}" 
+    alt="Photograph related to the oral history interview with ${item.interviewee}"
+    class="oh-card__image"
+  >
+</div>
+
     <div class="oh-card__body">
       <h3 class="oh-card__title">${item.title}</h3>
       <p class="oh-card__meta">${item.interviewee} • ${item.year}</p>
