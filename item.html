@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Oral History Details</title>
   <link rel="stylesheet" href="../css/styles.css">
+
   <style>
     .oh-detail {
       max-width: 900px;
@@ -13,7 +14,9 @@
       border-radius: 12px;
       border: 1px solid #c7dfb0;
     }
+
     .oh-tags { margin: 10px 0; }
+
     .oh-tag {
       display: inline-block;
       background: #eef6e6;
@@ -22,8 +25,41 @@
       border-radius: 999px;
       margin-right: 6px;
       border: 1px solid #c7dfb0;
+      margin-bottom: 6px;
     }
-    audio { width: 100%; margin-top: 12px; }
+
+    audio {
+      width: 100%;
+      margin-top: 12px;
+    }
+
+    .download-btn {
+      display: inline-block;
+      margin: 10px 0 20px;
+      padding: 8px 14px;
+      background: #2e7d32;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+
+    .download-btn:hover {
+      background: #256428;
+    }
+
+    .transcript-text {
+      background: #fafafa;
+      border: 1px solid #ddd;
+      padding: 16px;
+      max-height: 500px;
+      overflow-y: auto;
+      white-space: pre-wrap;
+      line-height: 1.6;
+      border-radius: 8px;
+      font-family: "Lato", sans-serif;
+    }
+    
   </style>
 </head>
 
@@ -31,6 +67,7 @@
 
 <div class="oh-detail">
   <h1 id="title"></h1>
+  <img id="oh-image" alt="" class="oh-image">
   <p id="meta"></p>
   <p id="summary"></p>
 
@@ -38,10 +75,19 @@
   <audio id="audio-player" controls></audio>
 
   <h3>Transcript</h3>
-  <a id="transcript-link" href="#" target="_blank">View Transcript</a>
+
+  <!-- PDF Download -->
+  <a id="transcript-link" class="download-btn" href="#" download>
+    ⬇ Download PDF Transcript
+  </a>
+
+  <!-- Text Transcript -->
+  <pre id="transcript-text" class="transcript-text">
+Loading transcript…
+  </pre>
 
   <h3>Tags</h3>
-  <div id="tag-list"></div>
+  <div id="tag-list" class="oh-tags"></div>
 </div>
 
 <script>
@@ -58,14 +104,43 @@
         return;
       }
 
+      // Basic info
       document.getElementById("title").textContent = item.title;
-      document.getElementById("meta").textContent = item.interviewee + " • " + item.year;
+      const img = document.getElementById("oh-image");
+
+      if (item.image) {
+        img.src = item.image;
+        img.alt = `Photograph related to the oral history interview with ${item.interviewee}`;
+      } else {
+        img.style.display = "none";
+      }
+
+      document.getElementById("meta").textContent =
+        item.interviewee + " • " + item.year;
       document.getElementById("summary").textContent = item.summary;
 
+      // Audio
       document.getElementById("audio-player").src = item.audio;
-      document.getElementById("transcript-link").href = item.transcript;
 
-      // tags
+      // PDF link
+      document.getElementById("transcript-link").href = item.transcript_pdf;
+
+      fetch(item.transcript_txt)
+  .then(r => {
+    if (!r.ok) throw new Error("Transcript not found");
+    return r.text();
+  })
+  .then(text => {
+    document.getElementById("transcript-text").textContent = text;
+  })
+  .catch(err => {
+    console.error(err);
+    document.getElementById("transcript-text").textContent =
+      "Transcript text unavailable. Please download the PDF above.";
+  });
+
+
+      // Tags
       const tagList = document.getElementById("tag-list");
       item.tags.forEach(t => {
         const span = document.createElement("span");
